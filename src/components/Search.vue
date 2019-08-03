@@ -7,6 +7,7 @@
         type="text"
         :placeholder="placeHolderName"
         @keyup="searchPerson(personName)"
+        @keyup.down="resultsDownButton(0)"
         spellcheck="false"
       />
     </div>
@@ -16,7 +17,11 @@
           @click="setPerson(result)"
           v-for="(result, index) in filteredResults"
           :key="index"
-          class="media"
+          class="media result"
+          :ref="'result' + index"
+          tabindex="0"
+          @keyup.down="resultsDownButton(index + 1)"
+          @keyup.up="resultsUpButton"
         >
           <figure class="media-left">
             <p class="image is-64x64">
@@ -47,7 +52,8 @@ export default {
   data() {
     return {
       personName: "",
-      personResults: []
+      personResults: [],
+      start: 0
     };
   },
   computed: {
@@ -62,10 +68,33 @@ export default {
     }
   },
   methods: {
+    resultsDownButton: function(index) {
+      if (index < this.personResults.length) {
+        let result = `result${index}`;
+        this.$refs[result][0].focus();
+      }
+    },
+    resultsUpButton: function() {
+      if (this.start > 0) this.start--;
+
+      let result = `result${this.start}`;
+      this.$refs[result][0].focus();
+      console.log(this.start);
+      //   if (this.start > 0) this.start--;
+      //   console.log(this.start);
+      //   let result = `result${this.start}`;
+      //   //   console.log(this.$refs[result][0]);
+      //
+      //   //   console.log(document.activeElement.tagName);
+      //   if (this.start > 0) {
+      //     this.start--;
+      //   }
+    },
     getPersonPhoto: function(photo) {
       return `http://image.tmdb.org/t/p/w92/${photo}`;
     },
     searchPerson: function(person) {
+      this.start = 0;
       this.$emit("clearPerson");
       if (person.length > 2) {
         tmdb.personSearch(person).then(response => {
@@ -109,6 +138,12 @@ export default {
     border-radius: 5px;
   }
 }
+
+.result:focus {
+  background: #000;
+  outline: 3px solid orange;
+}
+
 .fade-enter-active {
   transition: opacity 0.5s linear;
 }

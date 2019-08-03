@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="title has-text-white header glow">
-      <span class="duo">duos</span>
+      <span class="duo">duso</span>
     </h1>
   </div>
 </template>
