@@ -5,7 +5,7 @@
         v-model="personName"
         class="input is-medium"
         type="text"
-        placeholder="e.g Kevin Bacon"
+        :placeholder="placeHolderName"
         @keyup="searchPerson(personName)"
         spellcheck="false"
       />
@@ -14,7 +14,7 @@
       <div v-if="personResults.length !== 0" class="field results">
         <article
           @click="setPerson(result)"
-          v-for="(result, index) in personResults"
+          v-for="(result, index) in filteredResults"
           :key="index"
           class="media"
         >
@@ -43,11 +43,23 @@
 <script>
 import tmdb from "../services/axios";
 export default {
+  props: ["otherPerson", "placeHolderName"],
   data() {
     return {
       personName: "",
       personResults: []
     };
+  },
+  computed: {
+    // Filter results so you can't select the same person you have already selected.
+    filteredResults: function() {
+      if (this.otherPerson) {
+        return this.personResults.filter(
+          result => result.id !== this.otherPerson.personId
+        );
+      }
+      return this.personResults;
+    }
   },
   methods: {
     getPersonPhoto: function(photo) {

@@ -2,15 +2,24 @@
   <div class="container">
     <div class="columns is-half-tablet main">
       <div class="column">
-        <Search @confirmPerson="confirmPerson1" @clearPerson="clearPerson1" />
+        <Search
+          placeHolderName="e.g Leon Lau"
+          @confirmPerson="confirmPerson1"
+          @clearPerson="clearPerson1"
+          :otherPerson="person2"
+        />
       </div>
       <div class="column">
-        <Search @confirmPerson="confirmPerson2" @clearPerson="clearPerson2" />
+        <Search
+          placeHolderName="e.g Kevin Bacon"
+          @confirmPerson="confirmPerson2"
+          @clearPerson="clearPerson2"
+          :otherPerson="person1"
+        />
       </div>
     </div>
     <div v-if="person1 && person2" class="columns is-half-tablet main">
       <div class="column">
-        <!-- <button class="button" @click="test">baconize</button> -->
         <Results :personsConfirmed="[person1, person2]" />
       </div>
     </div>
