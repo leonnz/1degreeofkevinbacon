@@ -8,11 +8,9 @@
 @import "@/assets/css/theme.scss";
 html,
 body {
-  height: 100%;
   // background: #211f47;
   background: #eee;
   color: #141414;
-  overflow: auto;
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
