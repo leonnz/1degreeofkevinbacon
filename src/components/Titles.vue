@@ -12,6 +12,8 @@
           <img :title="title.title" :src="getTitlePoster(title.poster_path)" />
         </a>
       </div>
+      <p>TV</p>
+
       <div class="title" v-for="title in tv" :key="title.id">
         <a :href="getImdbLink(title.imdb_id)" target="_blank">
           <img :title="title.name" :src="getTitlePoster(title.poster_path)" />
@@ -65,9 +67,8 @@ export default {
 
 <style lang="scss" scoped>
 .titles {
-  flex-wrap: wrap;
-  justify-content: center;
-  color: #ffffff;
+  //   justify-content: center;
+  //   color: #ffffff;
 }
 
 .title {
