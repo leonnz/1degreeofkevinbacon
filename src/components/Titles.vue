@@ -75,7 +75,7 @@ export default {
 .title {
   //   box-shadow: 0 0 10px var(--shadowColor1), 5px 5px 10px var(--shadowColor2);
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 10px !important;
 }
 div.title + div.title {
   //   margin-left: 20px;

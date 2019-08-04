@@ -12,8 +12,7 @@ export default {};
 
 <style lang="scss" scoped>
 .header {
-  min-height: 1vh;
-  padding: 2vmin 0;
+  padding: 1vmin 0;
   font-size: 5rem;
   font-style: italic;
   // text-shadow: 0 0 10px #2de2e6, 5px 5px 10px #0000ff;
