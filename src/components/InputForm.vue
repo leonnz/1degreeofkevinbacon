@@ -75,6 +75,7 @@ export default {
 }
 .main {
   margin: auto;
+  width: 60%;
 }
 .inputs {
   width: 60%;
