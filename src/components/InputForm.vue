@@ -74,6 +74,6 @@ export default {
   }
 }
 .main {
-  // margin: auto !important;
+  margin: auto;
 }
 </style>

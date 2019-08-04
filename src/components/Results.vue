@@ -15,7 +15,7 @@
               :src="getPersonPhoto(personsConfirmed[0].personPic)"
             />
           </a>
-          <p class="title">{{ personsConfirmed[0].personName }}</p>
+          <p class="is-size-4">{{ personsConfirmed[0].personName }}</p>
         </div>
       </div>
       <div class="centerAnd searching">
@@ -29,7 +29,7 @@
               :src="getPersonPhoto(personsConfirmed[1].personPic)"
             />
           </a>
-          <p class="title">{{ personsConfirmed[1].personName }}</p>
+          <p class="is-size-4">{{ personsConfirmed[1].personName }}</p>
         </div>
       </div>
     </div>
