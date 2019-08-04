@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     getTitlePoster: function(poster) {
-      return `http://image.tmdb.org/t/p/w154/${poster}`;
+      return `http://image.tmdb.org/t/p/w92/${poster}`;
     },
     getImdbLink(imdbId) {
       if (imdbId) return `https://www.imdb.com/title/${imdbId}`;

@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="height: auto;">
+  <div class="container">
     <div v-if="!duplicateTitles" class="balls searching">
       <div></div>
       <div></div>
@@ -88,7 +88,7 @@ export default {
   },
   methods: {
     getPersonPhoto: function(photo) {
-      return `http://image.tmdb.org/t/p/w92/${photo}`;
+      return `http://image.tmdb.org/t/p/w154/${photo}`;
     },
     getFilmography: function() {
       tmdb
@@ -130,22 +130,38 @@ export default {
 .searching {
   margin: auto;
 }
+.leftPerson {
+  position: relative;
+  left: 150px;
+}
+.rightPerson {
+  position: relative;
+  right: 150px;
+}
 .personsCtn {
   text-align: center;
+  width: 100%;
+  margin: 0 auto !important;
 }
 .personCtn {
   //   color: #ffffff;
   background: none;
-  min-width: 90%;
+  // min-width: 90%;
   margin: 0 auto;
 
   p {
     // text-shadow: 0 0 10px var(--shadowColor1), 5px 5px 10px var(--shadowColor2);
   }
-
+  a {
+    position: relative;
+    right: 0 auto !important;
+  }
   img {
     // border: 1px solid yellow;
     border-radius: 5px;
+    position: relative;
+    right: 0 auto !important;
+
     // box-shadow: 0 0 10px var(--shadowColor1), 5px 5px 10px var(--shadowColor2);
   }
 }

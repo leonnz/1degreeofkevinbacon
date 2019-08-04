@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="columns is-half-tablet main">
+    <div class="columns is-half-tablet main inputs">
       <div class="column">
         <Search
           placeHolderName="e.g Leon Lau"
@@ -75,5 +75,8 @@ export default {
 }
 .main {
   margin: auto;
+}
+.inputs {
+  width: 60%;
 }
 </style>
