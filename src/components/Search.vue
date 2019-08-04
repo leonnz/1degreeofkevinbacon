@@ -23,6 +23,7 @@
           tabindex="0"
           @keyup.down="resultsDownButton(index + 1)"
           @keyup.up="resultsUpButton(index - 1)"
+          @keyup.enter="test"
         >
           <figure class="media-left">
             <p class="image is-64x64">
@@ -68,6 +69,9 @@ export default {
     }
   },
   methods: {
+    test: function() {
+      console.log("test");
+    },
     resultsDownButton: function(index) {
       if (index < this.personResults.length) {
         let result = `result${index}`;

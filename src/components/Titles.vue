@@ -1,19 +1,16 @@
 <template>
   <div class="titles">
-    <div>
-      <!-- <i class="fas fa-film fa-7x"></i>
-      <i class="far fa-tv-retro fa-7x"></i>
-
-      <i class="material-icons">tv</i>-->
-    </div>
+    <!-- <div class="title">Have both appeared in the following films and television</div> -->
     <transition-group name="fade" tag="div">
+      <div key="film" class="is-size-3">Shared film credits</div>
       <div class="title" v-for="title in movies" :key="title.id">
         <a :href="getImdbLink(title.imdb_id)" target="_blank">
           <img :title="title.title" :src="getTitlePoster(title.poster_path)" />
         </a>
       </div>
-      <p>TV</p>
-
+    </transition-group>
+    <transition-group name="fade" tag="div">
+      <div key="tv" class="is-size-3">Shared television credits</div>
       <div class="title" v-for="title in tv" :key="title.id">
         <a :href="getImdbLink(title.imdb_id)" target="_blank">
           <img :title="title.name" :src="getTitlePoster(title.poster_path)" />
@@ -66,6 +63,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.filmIcon {
+  display: inline-block;
+  top: 60%;
+  -ms-transform: translateY(-60%);
+  transform: translateY(-60%);
+}
 .titles {
   //   justify-content: center;
   //   color: #ffffff;
