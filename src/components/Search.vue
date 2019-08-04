@@ -116,6 +116,7 @@ export default {
 
 <style lang="scss" scoped>
 .name-field {
+  margin-bottom: 0.25rem !important;
   //   box-shadow: 0 0 10px var(--shadowColor1), 5px 5px 10px var(--shadowColor2);
 }
 .results {
@@ -125,8 +126,9 @@ export default {
   background: #ffffff;
   border-radius: 5px;
   cursor: pointer;
+  border: 1px solid var(--mainColor);
+  overflow: hidden;
   //   box-shadow: 0 0 10px var(--shadowColor1), 5px 5px 10px var(--shadowColor2);
-
   p {
     height: 100%;
     color: #1f1f1f;
@@ -143,8 +145,9 @@ export default {
 }
 
 .result:focus {
-  background: #efefef;
-  outline: 2px solid var(--mainColor);
+  background: #e1e1e1;
+  // outline: none;
+  outline: 1px solid var(--mainColor);
 }
 
 .fade-enter-active {
