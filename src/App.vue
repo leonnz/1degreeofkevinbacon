@@ -8,6 +8,7 @@
 @import "@/assets/css/theme.scss";
 html,
 body {
+  height: 100%;
   // background: #211f47;
   background: #eee;
   color: #141414;

@@ -9,6 +9,7 @@
         @keyup="searchPerson(personName)"
         @keyup.down="resultsDownButton(0)"
         spellcheck="false"
+        ref="input"
       />
     </div>
     <transition name="fade" tag="div">
@@ -21,7 +22,7 @@
           :ref="'result' + index"
           tabindex="0"
           @keyup.down="resultsDownButton(index + 1)"
-          @keyup.up="resultsUpButton"
+          @keyup.up="resultsUpButton(index - 1)"
         >
           <figure class="media-left">
             <p class="image is-64x64">
@@ -74,21 +75,14 @@ export default {
         this.$refs[result][0].focus();
       }
     },
-    resultsUpButton: function() {
-      if (this.start > 0) this.start--;
-
-      let result = `result${this.start}`;
-      this.$refs[result][0].focus();
-      console.log(this.start);
-      //   if (this.start > 0) this.start--;
-      //   console.log(this.start);
-      //   let result = `result${this.start}`;
-      //   //   console.log(this.$refs[result][0]);
-      //
-      //   //   console.log(document.activeElement.tagName);
-      //   if (this.start > 0) {
-      //     this.start--;
-      //   }
+    resultsUpButton: function(index) {
+      console.log(index);
+      if (index === -1) {
+        this.$refs.input.focus();
+      } else {
+        let result = `result${index}`;
+        this.$refs[result][0].focus();
+      }
     },
     getPersonPhoto: function(photo) {
       return `http://image.tmdb.org/t/p/w92/${photo}`;
