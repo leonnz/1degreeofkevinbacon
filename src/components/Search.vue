@@ -96,7 +96,7 @@ export default {
         });
       }
     },
-    setPerson({ name, id, profile_path, imdb_id }) {
+    setPerson({ name, id, profile_path }) {
       console.log(arguments[0].name);
       this.personResults.length = 0;
       this.personName = name;

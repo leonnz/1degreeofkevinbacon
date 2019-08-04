@@ -2,15 +2,13 @@
   <div class="titles">
     <!-- <div class="title">Have both appeared in the following films and television</div> -->
     <transition-group name="fade" tag="div">
-      <div key="film" class="is-size-3">Shared film credits</div>
+      <div v-if="movies.length > 0" key="film" class="is-size-3">Shared film credits</div>
       <div class="title" v-for="title in movies" :key="title.id">
         <a :href="getImdbLink(title.imdb_id)" target="_blank">
           <img :title="title.title" :src="getTitlePoster(title.poster_path)" />
         </a>
       </div>
-    </transition-group>
-    <transition-group name="fade" tag="div">
-      <div key="tv" class="is-size-3">Shared television credits</div>
+      <div v-if="tv.length > 0" key="tv" class="is-size-3">Shared television credits</div>
       <div class="title" v-for="title in tv" :key="title.id">
         <a :href="getImdbLink(title.imdb_id)" target="_blank">
           <img :title="title.name" :src="getTitlePoster(title.poster_path)" />
@@ -88,9 +86,10 @@ div.title + div.title {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 1s;
+  transition: all 1s ease-out;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  //   transform: translateX(10px);
   opacity: 0;
 }
 </style>
