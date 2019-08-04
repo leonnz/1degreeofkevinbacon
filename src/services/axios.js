@@ -28,6 +28,19 @@ const personFilmSearch = function(personId) {
     });
 };
 
+const personIdSearch = function(personId) {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/person/${personId}?api_key=${apiKey}&language=en-US`
+    )
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
 const movieSearch = function(movieId) {
   return axios
     .get(
@@ -70,6 +83,7 @@ const tvExtIdSearch = function(tvId) {
 export default {
   personSearch,
   personFilmSearch,
+  personIdSearch,
   movieSearch,
   tvSearch,
   tvExtIdSearch

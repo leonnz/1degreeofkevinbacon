@@ -53,8 +53,7 @@ export default {
   data() {
     return {
       personName: "",
-      personResults: [],
-      start: 0
+      personResults: []
     };
   },
   computed: {
@@ -88,7 +87,6 @@ export default {
       return `http://image.tmdb.org/t/p/w92/${photo}`;
     },
     searchPerson: function(person) {
-      this.start = 0;
       this.$emit("clearPerson");
       if (person.length > 2) {
         tmdb.personSearch(person).then(response => {
@@ -99,12 +97,17 @@ export default {
       }
     },
     setPerson(person) {
+      console.log(person);
       this.personResults.length = 0;
       this.personName = person.name;
-      this.$emit("confirmPerson", {
-        personName: person.name,
-        personId: person.id,
-        personPic: person.profile_path
+
+      tmdb.personIdSearch(person.id).then(response => {
+        this.$emit("confirmPerson", {
+          personName: person.name,
+          personId: person.id,
+          personPic: person.profile_path,
+          personImdbId: response.imdb_id
+        });
       });
     }
   }

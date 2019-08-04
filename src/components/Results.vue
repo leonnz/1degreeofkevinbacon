@@ -9,10 +9,12 @@
     <div v-if="duplicateTitles" class="tile is-ancestor personsCtn">
       <div class="tile">
         <div class="personCtn">
-          <img
-            :title="personsConfirmed[0].personName"
-            :src="getPersonPhoto(personsConfirmed[0].personPic)"
-          />
+          <a :href="getImdbLink(personsConfirmed[0].personImdbId)" target="_blank">
+            <img
+              :title="personsConfirmed[0].personName"
+              :src="getPersonPhoto(personsConfirmed[0].personPic)"
+            />
+          </a>
           <p class="is-size-4">{{ personsConfirmed[0].personName }}</p>
         </div>
       </div>
@@ -21,10 +23,12 @@
       </div>
       <div class="tile">
         <div class="personCtn">
-          <img
-            :title="personsConfirmed[1].personName"
-            :src="getPersonPhoto(personsConfirmed[1].personPic)"
-          />
+          <a :href="getImdbLink(personsConfirmed[1].personImdbId)" target="_blank">
+            <img
+              :title="personsConfirmed[1].personName"
+              :src="getPersonPhoto(personsConfirmed[1].personPic)"
+            />
+          </a>
           <p class="is-size-4">{{ personsConfirmed[1].personName }}</p>
         </div>
       </div>
@@ -109,6 +113,9 @@ export default {
             }
           );
         });
+    },
+    getImdbLink: function(imdbId) {
+      return `https://www.imdb.com/name/${imdbId}`;
     }
   },
   mounted() {
