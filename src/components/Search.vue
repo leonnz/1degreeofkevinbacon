@@ -96,16 +96,16 @@ export default {
         });
       }
     },
-    setPerson(person) {
-      console.log(person);
+    setPerson({ name, id, profile_path, imdb_id }) {
+      console.log(arguments[0].name);
       this.personResults.length = 0;
-      this.personName = person.name;
+      this.personName = name;
 
-      tmdb.personIdSearch(person.id).then(response => {
+      tmdb.personIdSearch(id).then(response => {
         this.$emit("confirmPerson", {
-          personName: person.name,
-          personId: person.id,
-          personPic: person.profile_path,
+          personName: name,
+          personId: id,
+          personPic: profile_path,
           personImdbId: response.imdb_id
         });
       });
