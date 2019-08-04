@@ -14,31 +14,30 @@
     </div>
     <transition name="fade" tag="div">
       <div v-if="personResults.length !== 0" class="field results">
-        <article
-          @click="setPerson(result)"
-          v-for="(result, index) in filteredResults"
-          :key="index"
-          class="media result"
-          :ref="'result' + index"
-          tabindex="0"
-          @keyup.down="resultsDownButton(index + 1)"
-          @keyup.up="resultsUpButton(index - 1)"
-          @keyup.enter="test"
-        >
-          <figure class="media-left">
-            <p class="image is-64x64">
-              <img :src="getPersonPhoto(result.profile_path)" />
-            </p>
-          </figure>
-          <div class="media-content">
-            <div class="content">
-              <p>
-                <strong>{{ result.name }}</strong>
-                <br />
-                {{ result.known_for.map(title => {
-                return title.original_name ? title.original_name : title.title
-                }).join(", ") }}
+        <article @click="setPerson(result)" v-for="(result, index) in filteredResults" :key="index">
+          <div
+            class="media result"
+            :ref="'result' + index"
+            tabindex="0"
+            @keyup.down="resultsDownButton(index + 1)"
+            @keyup.up="resultsUpButton(index - 1)"
+            @keyup.enter="test"
+          >
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img :src="getPersonPhoto(result.profile_path)" />
               </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>{{ result.name }}</strong>
+                  <br />
+                  {{ result.known_for.map(title => {
+                  return title.original_name ? title.original_name : title.title
+                  }).join(", ") }}
+                </p>
+              </div>
             </div>
           </div>
         </article>
@@ -125,7 +124,7 @@ export default {
 .results {
   width: 100%;
   color: #1f1f1f;
-  padding: 0.5rem;
+  // padding: 0.5rem;
   background: #ffffff;
   border-radius: 5px;
   cursor: pointer;
@@ -140,9 +139,15 @@ export default {
   }
 }
 
+.result {
+  padding: 0.5rem;
+  border-bottom: 1px solid #efefef;
+  // margin-top: 1rem;
+}
+
 .result:focus {
-  background: #000;
-  outline: 3px solid orange;
+  background: #efefef;
+  outline: 2px solid var(--mainColor);
 }
 
 .fade-enter-active {
