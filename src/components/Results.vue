@@ -13,6 +13,7 @@
             <img
               :title="personsConfirmed[0].personName"
               :src="getPersonPhoto(personsConfirmed[0].personPic)"
+              @error="imgError"
             />
           </a>
           <p class="is-size-4">{{ personsConfirmed[0].personName }}</p>
@@ -27,6 +28,7 @@
             <img
               :title="personsConfirmed[1].personName"
               :src="getPersonPhoto(personsConfirmed[1].personPic)"
+              @error="imgError"
             />
           </a>
           <p class="is-size-4">{{ personsConfirmed[1].personName }}</p>
@@ -88,7 +90,7 @@ export default {
   },
   methods: {
     getPersonPhoto: function(photo) {
-      return `http://image.tmdb.org/t/p/w154/${photo}`;
+      return `http://image.tmdb.org/t/p/w92/${photo}`;
     },
     getFilmography: function() {
       tmdb
@@ -116,6 +118,9 @@ export default {
     },
     getImdbLink: function(imdbId) {
       return `https://www.imdb.com/name/${imdbId}`;
+    },
+    imgError: function(img) {
+      img.target.src = require("../assets/images/default_person.svg");
     }
   },
   mounted() {
