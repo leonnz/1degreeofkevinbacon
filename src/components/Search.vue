@@ -25,7 +25,7 @@
           >
             <figure class="media-left">
               <p class="image is-64x64">
-                <img :src="getPersonPhoto(result.profile_path)" />
+                <img :src="getPersonPhoto(result.profile_path)" @error="imgError" />
               </p>
             </figure>
             <div class="media-content">
@@ -90,11 +90,12 @@ export default {
       this.$emit("clearPerson");
       if (person.length > 2) {
         tmdb.personSearch(person).then(response => {
-          this.personResults = response.results
-            .filter(result => result.popularity >= 1)
-            .slice(0, 5);
+          this.personResults = response.results.slice(0, 5);
         });
       }
+    },
+    imgError: function(img) {
+      img.target.src = require("../assets/images/default_person_64w.svg");
     },
     setPerson({ name, id, profile_path }) {
       console.log(arguments[0].name);

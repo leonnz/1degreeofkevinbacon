@@ -126,7 +126,7 @@ export default {
       return `https://www.imdb.com/name/${imdbId}`;
     },
     imgError: function(img) {
-      img.target.src = require("../assets/images/default_person.svg");
+      img.target.src = require("../assets/images/default_person_92w.svg");
     }
   },
   mounted() {
