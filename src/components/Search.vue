@@ -49,7 +49,16 @@
 <script>
 import tmdb from "../services/axios";
 export default {
-  props: ["otherPerson", "placeHolderName"],
+  props: {
+    otherPerson: {
+      type: Object,
+      required: false
+    },
+    placeHolderName: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       personName: "",

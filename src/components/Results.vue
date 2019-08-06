@@ -44,7 +44,6 @@ import tmdb from "../services/axios";
 import Titles from "../components/Titles";
 
 export default {
-  // props: ["personsConfirmed"],
   props: {
     personsConfirmed: {
       type: Array,

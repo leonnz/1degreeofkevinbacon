@@ -21,7 +21,12 @@
 <script>
 import tmdb from "../services/axios";
 export default {
-  props: ["duplicateTitles"],
+  props: {
+    duplicateTitles: {
+      type: Array,
+      required: false
+    }
+  },
   data() {
     return {
       movies: [],
