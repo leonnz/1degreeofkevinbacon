@@ -86,22 +86,16 @@ export default {
   transform: translateY(-60%);
 }
 .titles {
-  //   justify-content: center;
-  //   color: #ffffff;
+  padding-bottom: 5rem;
 }
-
 .title {
   //   box-shadow: 0 0 10px var(--shadowColor1), 5px 5px 10px var(--shadowColor2);
   display: inline-block;
   margin: 0 10px !important;
 }
-div.title + div.title {
-  //   margin-left: 20px;
-}
 .title img {
   border-radius: 5px;
 }
-
 .fade-enter-active,
 .fade-leave-active {
   transition: all 1s ease-out;
