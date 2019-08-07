@@ -5,13 +5,23 @@
       <div v-if="movies.length > 0" key="film" class="is-size-4">Shared film credits</div>
       <div class="title" v-for="title in movies" :key="title.id">
         <a :href="getImdbLink(title.imdb_id)" target="_blank">
-          <img class="image" :title="title.title" :src="getTitlePoster(title.poster_path)" />
+          <img
+            class="image"
+            :title="title.title"
+            :src="getTitlePoster(title.poster_path)"
+            @error="imgError"
+          />
         </a>
       </div>
       <div v-if="tv.length > 0" key="tv" class="is-size-4">Shared television credits</div>
       <div class="title" v-for="title in tv" :key="title.id">
         <a :href="getImdbLink(title.imdb_id)" target="_blank">
-          <img class="image" :title="title.name" :src="getTitlePoster(title.poster_path)" />
+          <img
+            class="image"
+            :title="title.name"
+            :src="getTitlePoster(title.poster_path)"
+            @error="imgError"
+          />
         </a>
       </div>
     </transition-group>
@@ -59,6 +69,9 @@ export default {
     },
     getImdbLink(imdbId) {
       if (imdbId) return `https://www.imdb.com/title/${imdbId}`;
+    },
+    imgError: function(img) {
+      img.target.src = require("../assets/images/default_title_92w.png");
     }
   },
   mounted() {}
