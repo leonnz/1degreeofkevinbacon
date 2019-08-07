@@ -1,16 +1,23 @@
 <template>
   <div>
     <div class="field name-field">
-      <input
-        v-model="personName"
-        class="input is-medium"
-        type="text"
-        :placeholder="placeHolderName"
-        @keyup="searchPerson(personName)"
-        @keyup.down="resultsDownButton(0)"
-        spellcheck="false"
-        ref="input"
-      />
+      <p class="control has-icons-right">
+        <input
+          v-model="personName"
+          class="input is-medium"
+          type="text"
+          :placeholder="placeHolderName"
+          @keyup="searchPerson(personName)"
+          @keyup.down="resultsDownButton(0)"
+          spellcheck="false"
+          ref="input"
+        />
+        <span v-show="personName" class="icon is-small is-right clear-icon">
+          <a @click="clearSearch">
+            <i class="fas fa-times"></i>
+          </a>
+        </span>
+      </p>
     </div>
     <transition name="fade" tag="div">
       <div v-if="personResults.length !== 0" class="field results">
@@ -77,6 +84,10 @@ export default {
     }
   },
   methods: {
+    clearSearch: function() {
+      this.personName = "";
+      this.$refs.input.focus();
+    },
     resultsDownButton: function(index) {
       if (index < this.personResults.length) {
         let result = `result${index}`;
@@ -128,6 +139,9 @@ export default {
 .name-field {
   margin-bottom: 0.25rem !important;
   //   box-shadow: 0 0 10px var(--shadowColor1), 5px 5px 10px var(--shadowColor2);
+}
+.clear-icon {
+  pointer-events: initial !important;
 }
 .results {
   width: 100%;
