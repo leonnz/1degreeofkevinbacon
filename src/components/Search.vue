@@ -18,38 +18,44 @@
           </a>
         </span>
       </p>
-    </div>
-    <transition name="fade" tag="div">
-      <div v-if="personResults.length !== 0" class="field results">
-        <article @click="setPerson(result)" v-for="(result, index) in filteredResults" :key="index">
-          <div
-            class="media result"
-            :ref="'result' + index"
-            tabindex="0"
-            @keyup.down="resultsDownButton(index + 1)"
-            @keyup.up="resultsUpButton(index - 1)"
-            @keyup.enter="setPerson(result)"
-          >
-            <figure class="media-left">
-              <p class="image is-64x64">
-                <img :src="getPersonPhoto(result.profile_path)" @error="imgError" />
-              </p>
-            </figure>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong>{{ result.name }}</strong>
-                  <br />
-                  {{ result.known_for.map(title => {
-                  return title.original_name ? title.original_name : title.title
-                  }).join(", ") }}
-                </p>
+      <div class="results-ctn">
+        <transition name="fade" tag="div">
+          <div v-if="personResults.length !== 0" class="field results">
+            <article
+              @click="setPerson(result)"
+              v-for="(result, index) in filteredResults"
+              :key="index"
+            >
+              <div
+                class="media result"
+                :ref="'result' + index"
+                tabindex="0"
+                @keyup.down="resultsDownButton(index + 1)"
+                @keyup.up="resultsUpButton(index - 1)"
+                @keyup.enter="setPerson(result)"
+              >
+                <figure class="media-left">
+                  <p class="image is-64x64">
+                    <img :src="getPersonPhoto(result.profile_path)" @error="imgError" />
+                  </p>
+                </figure>
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      <strong>{{ result.name }}</strong>
+                      <br />
+                      {{ result.known_for.map(title => {
+                      return title.original_name ? title.original_name : title.title
+                      }).join(", ") }}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
+            </article>
           </div>
-        </article>
+        </transition>
       </div>
-    </transition>
+    </div>
   </div>
 </template>
 
@@ -107,7 +113,6 @@ export default {
       return `http://image.tmdb.org/t/p/w92/${photo}`;
     },
     searchPerson: function(person) {
-      this.$emit("clearPerson");
       if (person.length > 2) {
         tmdb.personSearch(person).then(response => {
           this.personResults = response.results.slice(0, 5);
@@ -118,6 +123,7 @@ export default {
       img.target.src = require("../assets/images/default_person_64w.svg");
     },
     setPerson({ name, id, profile_path }) {
+      this.$emit("clearPerson");
       console.log(arguments[0].name);
       this.personResults.length = 0;
       this.personName = name;
@@ -143,8 +149,13 @@ export default {
 .clear-icon {
   pointer-events: initial !important;
 }
-.results {
+.results-ctn {
+  position: relative;
   width: 100%;
+}
+.results {
+  position: absolute;
+  z-index: 1;
   color: #1f1f1f;
   // padding: 0.5rem;
   background: #ffffff;
