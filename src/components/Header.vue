@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="title has-text-white header glow">
-      <span class="duo">yiso</span>
+      <span class="duo">1&#176;ofKevinBacon.com</span>
     </h1>
   </div>
 </template>

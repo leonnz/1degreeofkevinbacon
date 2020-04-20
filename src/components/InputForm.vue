@@ -3,7 +3,7 @@
     <div class="columns is-half-tablet inputs">
       <div class="column">
         <Search
-          placeHolderName="e.g Leon Lau"
+          placeHolderName="Kevin Bacon"
           @confirmPerson="confirmPerson1"
           @clearPerson="clearPerson1"
           :otherPerson="person2"
@@ -11,7 +11,7 @@
       </div>
       <div class="column">
         <Search
-          placeHolderName="e.g Kevin Bacon"
+          placeHolderName="Tom Cruise"
           @confirmPerson="confirmPerson2"
           @clearPerson="clearPerson2"
           :otherPerson="person1"
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import tmdb from "../services/axios";
+// import tmdb from "../services/axios";
 import Search from "./Search";
 import Results from "./Results";
 

@@ -9,7 +9,10 @@
     <div v-if="duplicateTitles" class="tile is-ancestor personsCtn">
       <div class="tile">
         <div class="personCtn">
-          <a :href="getImdbLink(personsConfirmed[0].personImdbId)" target="_blank">
+          <a
+            :href="getImdbLink(personsConfirmed[0].personImdbId)"
+            target="_blank"
+          >
             <img
               :title="personsConfirmed[0].personName"
               :src="getPersonPhoto(personsConfirmed[0].personPic)"
@@ -24,7 +27,10 @@
       </div>
       <div class="tile">
         <div class="personCtn">
-          <a :href="getImdbLink(personsConfirmed[1].personImdbId)" target="_blank">
+          <a
+            :href="getImdbLink(personsConfirmed[1].personImdbId)"
+            target="_blank"
+          >
             <img
               :title="personsConfirmed[1].personName"
               :src="getPersonPhoto(personsConfirmed[1].personPic)"
@@ -91,6 +97,7 @@ export default {
 
         return uniqueFilteredTitles;
       }
+      return null;
     }
   },
   methods: {
@@ -159,9 +166,6 @@ export default {
   // min-width: 90%;
   margin: 0 auto;
 
-  p {
-    // text-shadow: 0 0 10px var(--shadowColor1), 5px 5px 10px var(--shadowColor2);
-  }
   a {
     position: relative;
     right: 0 auto !important;
