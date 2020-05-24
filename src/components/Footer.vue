@@ -17,7 +17,7 @@ $footer-padding: 1rem 1rem !default;
   color: #fff;
   background: var(--mainColor);
   a {
-    color: red;
+    color: white;
   }
 }
 </style>

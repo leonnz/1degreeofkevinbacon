@@ -74,9 +74,13 @@ export default {
                 response.imdb_id = tvRes.imdb_id;
 
                 // filter out talk show tv shows
-                if (response.type != "Talk Show") {
-                  this.tv.push(response);
+                if (
+                  response.type != "Talk Show" &&
+                  response.type != "Reality" &&
+                  this.filterOther(response.genres) != true
+                ) {
                   console.log(response);
+                  this.tv.push(response);
                 }
               });
             });
@@ -93,6 +97,19 @@ export default {
     },
     imgError: function(img) {
       img.target.src = require("../assets/images/default_title_92w.png");
+    },
+    filterOther: (genres) => {
+      let otherShowTypes = false;
+      genres.forEach((genre) => {
+        if (
+          genre.name == "Talk" ||
+          genre.name == "News" ||
+          genre.name == "Reality"
+        ) {
+          otherShowTypes = true;
+        }
+      });
+      return otherShowTypes;
     }
   },
   mounted() {}

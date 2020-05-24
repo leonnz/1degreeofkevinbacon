@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="title has-text-white header glow">
-      <span class="duo">1&#176;ofKevinBacon.com</span>
+      <span class="site-name">1&#176;ofKevinBacon.com</span>
     </h1>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {};
   font-style: italic;
   // text-shadow: 0 0 10px #2de2e6, 5px 5px 10px #0000ff;
 }
-.duo {
+.site-name {
   color: var(--mainColor);
 }
 </style>
