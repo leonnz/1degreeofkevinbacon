@@ -45,39 +45,44 @@
 </template>
 
 <script>
-import tmdb from '../services/axios';
+import tmdb from "../services/axios";
 export default {
   props: {
     duplicateTitles: {
       type: Array,
-      required: false,
-    },
+      required: false
+    }
   },
   data() {
     return {
       movies: [],
-      tv: [],
+      tv: []
     };
   },
   watch: {
     duplicateTitles: function() {
       if (this.duplicateTitles)
         this.duplicateTitles.forEach((title) => {
-          if (title.type === 'movie') {
+          if (title.type === "movie") {
             tmdb.movieSearch(title.id).then((response) => {
               this.movies.push(response);
             });
           }
-          if (title.type === 'tv') {
+          if (title.type === "tv") {
             tmdb.tvSearch(title.id).then((response) => {
               tmdb.tvExtIdSearch(response.id).then((tvRes) => {
                 response.imdb_id = tvRes.imdb_id;
-                this.tv.push(response);
+
+                // filter out talk show tv shows
+                if (response.type != "Talk Show") {
+                  this.tv.push(response);
+                  console.log(response);
+                }
               });
             });
           }
         });
-    },
+    }
   },
   methods: {
     getTitlePoster: function(poster) {
@@ -87,10 +92,10 @@ export default {
       if (imdbId) return `https://www.imdb.com/title/${imdbId}`;
     },
     imgError: function(img) {
-      img.target.src = require('../assets/images/default_title_92w.png');
-    },
+      img.target.src = require("../assets/images/default_title_92w.png");
+    }
   },
-  mounted() {},
+  mounted() {}
 };
 </script>
 
