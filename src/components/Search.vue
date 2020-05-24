@@ -36,7 +36,10 @@
               >
                 <figure class="media-left">
                   <p class="image is-64x64">
-                    <img :src="getPersonPhoto(result.profile_path)" @error="imgError" />
+                    <img
+                      :src="getPersonPhoto(result.profile_path)"
+                      @error="imgError"
+                    />
                   </p>
                 </figure>
                 <div class="media-content">
@@ -44,9 +47,15 @@
                     <p>
                       <strong>{{ result.name }}</strong>
                       <br />
-                      {{ result.known_for.map(title => {
-                      return title.original_name ? title.original_name : title.title
-                      }).join(", ") }}
+                      {{
+                        result.known_for
+                          .map(title => {
+                            return title.original_name
+                              ? title.original_name
+                              : title.title;
+                          })
+                          .join(", ")
+                      }}
                     </p>
                   </div>
                 </div>
@@ -192,4 +201,3 @@ export default {
   opacity: 0;
 }
 </style>
-

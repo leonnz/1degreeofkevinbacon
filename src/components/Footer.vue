@@ -2,8 +2,7 @@
   <footer class="footer foot">
     <div class="content has-text-centered">
       <p>
-        Yiso by
-        <a href="mailto:leondotlau@gmail.com">Leon Lau</a>
+        <a href="mailto:leondotlau@gmail.com">by Leon Lau</a>
       </p>
     </div>
   </footer>

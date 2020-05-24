@@ -2,7 +2,13 @@
   <div class="titles">
     <!-- <div class="title">Have both appeared in the following films and television</div> -->
     <transition-group name="fade" tag="div">
-      <div v-if="movies.length > 0" key="film" class="is-size-4">Shared film credits</div>
+      <div v-if="movies.length > 0" key="film" class="is-size-4">
+        <p>Shared film credits</p>
+      </div>
+      <div v-if="movies.length == 0" key="film" class="is-size-4">
+        <p>No shared film credits</p>
+        <i class="fas fa-ban"></i>
+      </div>
       <div class="title" v-for="title in movies" :key="title.id">
         <a :href="getImdbLink(title.imdb_id)" target="_blank">
           <img
@@ -13,7 +19,13 @@
           />
         </a>
       </div>
-      <div v-if="tv.length > 0" key="tv" class="is-size-4">Shared television credits</div>
+      <div v-if="tv.length > 0" key="tv" class="is-size-4">
+        <p>Shared television credits</p>
+      </div>
+      <div v-if="tv.length == 0" key="tv" class="is-size-4">
+        <p>No shared television credits</p>
+        <i class="fas fa-ban"></i>
+      </div>
       <div class="title" v-for="title in tv" :key="title.id">
         <a :href="getImdbLink(title.imdb_id)" target="_blank">
           <img
@@ -105,5 +117,3 @@ export default {
   opacity: 0;
 }
 </style>
-
-
