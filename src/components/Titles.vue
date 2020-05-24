@@ -73,13 +73,12 @@ export default {
               tmdb.tvExtIdSearch(response.id).then((tvRes) => {
                 response.imdb_id = tvRes.imdb_id;
 
-                // filter out talk show tv shows
+                // filter out talk show, reality, news tv shows
                 if (
                   response.type != "Talk Show" &&
                   response.type != "Reality" &&
                   this.filterOther(response.genres) != true
                 ) {
-                  console.log(response);
                   this.tv.push(response);
                 }
               });
