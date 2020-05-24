@@ -65,7 +65,11 @@ export default {
         this.duplicateTitles.forEach((title) => {
           if (title.type === "movie") {
             tmdb.movieSearch(title.id).then((response) => {
-              this.movies.push(response);
+              if (this.filterFilmGenres(response.genres) != true) {
+                this.movies.push(response);
+              }
+
+              // console.log(response);
             });
           }
           if (title.type === "tv") {
@@ -73,13 +77,15 @@ export default {
               tmdb.tvExtIdSearch(response.id).then((tvRes) => {
                 response.imdb_id = tvRes.imdb_id;
 
-                // filter out talk show, reality, news tv shows
+                // filter out talk show, reality, news tv shows, and other weird shows
                 if (
                   response.type != "Talk Show" &&
                   response.type != "Reality" &&
-                  this.filterOther(response.genres) != true
+                  this.filterOtherTvGenres(response.genres) != true &&
+                  this.filterOtherTvShows(response.name) != true
                 ) {
                   this.tv.push(response);
+                  console.log(response);
                 }
               });
             });
@@ -97,14 +103,32 @@ export default {
     imgError: function(img) {
       img.target.src = require("../assets/images/default_title_92w.png");
     },
-    filterOther: (genres) => {
+    filterOtherTvGenres: (genres) => {
       let otherShowTypes = false;
       genres.forEach((genre) => {
         if (
           genre.name == "Talk" ||
           genre.name == "News" ||
-          genre.name == "Reality"
+          genre.name == "Reality" ||
+          genre.name == "Documentary"
         ) {
+          otherShowTypes = true;
+        }
+      });
+      return otherShowTypes;
+    },
+    filterOtherTvShows: (name) => {
+      let otherTvShows = false;
+      if (name == "Live from Studio Five") {
+        otherTvShows = true;
+      }
+      return otherTvShows;
+    },
+
+    filterFilmGenres: (genres) => {
+      let otherShowTypes = false;
+      genres.forEach((genre) => {
+        if (genre.name == "Documentary") {
           otherShowTypes = true;
         }
       });

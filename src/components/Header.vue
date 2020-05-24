@@ -1,7 +1,8 @@
 <template>
   <div>
     <h1 class="title has-text-white header glow">
-      <span class="site-name">1&#176;ofKevinBacon.com</span>
+      <!-- <span class="site-name">1&#176;ofKevinBacon.com</span> -->
+      <img src="../assets/images/title.png" />
     </h1>
   </div>
 </template>

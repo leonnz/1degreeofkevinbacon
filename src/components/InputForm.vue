@@ -35,7 +35,8 @@
         where any two people on Earth are six or fewer acquaintance links apart,
         this website reveals which film and television celebrities have a
         <i>1&#176;</i> degree of seperation through a shared movie or television
-        credit.
+        credit. Talk shows, news, reality shows and documentaries are not
+        included.
       </p>
     </div>
   </div>
