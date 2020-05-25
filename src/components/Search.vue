@@ -102,6 +102,7 @@ export default {
     clearSearch: function() {
       this.personName = "";
       this.$refs.input.focus();
+      this.personResults = [];
     },
     resultsDownButton: function(index) {
       if (index < this.personResults.length) {
