@@ -163,6 +163,7 @@ export default {
   width: 100%;
 }
 .results {
+  width: 100%;
   position: absolute;
   z-index: 1;
   color: #1f1f1f;

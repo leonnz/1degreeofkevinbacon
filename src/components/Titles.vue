@@ -15,7 +15,7 @@
         <a :href="getImdbLink(title.imdb_id)" target="_blank">
           <img
             class="image"
-            :title="title.title"
+            :title="title.title + ' - Link to IMDB'"
             :src="getTitlePoster(title.poster_path)"
             @error="imgError"
           />
@@ -34,7 +34,7 @@
         <a :href="getImdbLink(title.imdb_id)" target="_blank">
           <img
             class="image"
-            :title="title.name"
+            :title="title.name + ' - Link to IMDB'"
             :src="getTitlePoster(title.poster_path)"
             @error="imgError"
           />
