@@ -23,7 +23,7 @@
         <Results :personsConfirmed="[person1, person2]" />
       </div>
     </div>
-    <div class="column" v-if="!person1 || !person2">
+    <div class="column about" v-if="!person1 || !person2">
       <p>
         Based on the concept of
         <a
@@ -101,5 +101,11 @@ export default {
 
 .wiki-link {
   color: var(--mainColor);
+}
+
+.about {
+  text-align: left;
+  width: 700px;
+  margin: 0 auto;
 }
 </style>

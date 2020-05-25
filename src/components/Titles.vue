@@ -67,9 +67,8 @@ export default {
             tmdb.movieSearch(title.id).then((response) => {
               if (this.filterFilmGenres(response.genres) != true) {
                 this.movies.push(response);
+                console.log(response);
               }
-
-              // console.log(response);
             });
           }
           if (title.type === "tv") {
