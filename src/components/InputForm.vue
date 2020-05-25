@@ -104,8 +104,8 @@ export default {
 }
 
 .about {
-  text-align: left;
-  width: 700px;
+  text-align: center;
+  width: 800px;
   margin: 0 auto;
 }
 </style>

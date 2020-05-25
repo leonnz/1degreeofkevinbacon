@@ -2,7 +2,25 @@
   <footer class="footer foot">
     <div class="content has-text-centered">
       <p>
-        <a href="mailto:leondotlau@gmail.com">by Leon Lau</a>
+        <a
+          title="Leon Lau LinkedIn link"
+          target="blank"
+          href="https://www.linkedin.com/in/leonlaunz/"
+          >by Leon Lau
+        </a>
+      </p>
+    </div>
+    <div className="content has-text-centered">
+      <p>
+        Did you find this tool useful/fun/feeling nice?
+
+        <a
+          target="blank"
+          title="Paypal link"
+          href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=UHK5G657T7SJY&currency_code=USD&source=url"
+        >
+          Buy me a coffee </a
+        >:)
       </p>
     </div>
   </footer>
@@ -14,10 +32,11 @@ $footer-padding: 1rem 1rem !default;
   position: absolute;
   bottom: 0;
   width: 100%;
-  color: #fff;
-  background: var(--mainColor);
+  color: #888;
+  background: #eee;
+  // background: var(--mainColor);
   a {
-    color: white;
+    color: var(--mainColor);
   }
 }
 </style>
