@@ -103,6 +103,7 @@ export default {
       this.personName = "";
       this.$refs.input.focus();
       this.personResults = [];
+      this.$emit("clearPerson");
     },
     resultsDownButton: function(index) {
       if (index < this.personResults.length) {

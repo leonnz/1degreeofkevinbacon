@@ -33,7 +33,8 @@
           >Six Degrees of Kevin Bacon</a
         >
         where any two people on Earth are six or fewer acquaintance links apart,
-        this website reveals which film and television celebrities have a
+        this website reveals which film and television celebrities (including
+        directors and producers) have a
         <i>1&#176;</i> degree of seperation through a shared movie or television
         credit. Talk shows, news, reality shows and documentaries are not
         included.
