@@ -11,8 +11,6 @@
           Leon Lau
         </a>
       </p>
-    </div>
-    <div className="content has-text-centered">
       <p>
         Did you find this tool useful/fun/feeling nice?
 
