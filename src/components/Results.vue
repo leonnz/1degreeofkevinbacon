@@ -14,7 +14,7 @@
             target="_blank"
           >
             <img
-              :title="personsConfirmed[0].personName"
+              :title="personsConfirmed[0].personName + ' - Link to IMDB'"
               :src="getPersonPhoto(personsConfirmed[0].personPic)"
               @error="imgError"
             />
@@ -36,7 +36,7 @@
             target="_blank"
           >
             <img
-              :title="personsConfirmed[1].personName"
+              :title="personsConfirmed[1].personName + ' - Link to IMDB'"
               :src="getPersonPhoto(personsConfirmed[1].personPic)"
               @error="imgError"
             />
@@ -50,23 +50,23 @@
 </template>
 
 <script>
-import tmdb from '../services/axios';
-import Titles from '../components/Titles';
+import tmdb from "../services/axios";
+import Titles from "../components/Titles";
 
 export default {
   props: {
     personsConfirmed: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
   components: {
-    Titles,
+    Titles
   },
   data() {
     return {
       person1Titles: [],
-      person2Titles: [],
+      person2Titles: []
     };
   },
 
@@ -79,7 +79,7 @@ export default {
             return {
               count: 1,
               id: title.id,
-              type: title.type,
+              type: title.type
             };
           })
           .reduce((a, b) => {
@@ -102,7 +102,7 @@ export default {
         return uniqueFilteredTitles;
       }
       return null;
-    },
+    }
   },
   methods: {
     getPersonPhoto: function(photo) {
@@ -136,14 +136,14 @@ export default {
       return `https://www.imdb.com/name/${imdbId}`;
     },
     imgError: function(img) {
-      img.target.src = require('../assets/images/default_person_92w.svg');
-    },
+      img.target.src = require("../assets/images/default_person_92w.svg");
+    }
   },
   mounted() {
     if (this.personsConfirmed.length == 2) {
       this.getFilmography();
     }
-  },
+  }
 };
 </script>
 
