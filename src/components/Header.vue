@@ -1,8 +1,9 @@
 <template>
   <div>
     <h1 class="title has-text-white header glow">
-      <!-- <span class="site-name">1&#176;ofKevinBacon.com</span> -->
-      <a href="/"><img src="../assets/images/title.png"/></a>
+      <a href="/"
+        ><img title="1°ofKevinBacon.com" src="../assets/images/title.png"
+      /></a>
     </h1>
   </div>
 </template>
