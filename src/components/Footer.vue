@@ -2,11 +2,13 @@
   <footer class="footer foot">
     <div class="content has-text-centered">
       <p>
+        &copy;
         <a
           title="Leon Lau LinkedIn link"
           target="blank"
           href="https://www.linkedin.com/in/leonlaunz/"
-          >by Leon Lau
+        >
+          Leon Lau
         </a>
       </p>
     </div>
