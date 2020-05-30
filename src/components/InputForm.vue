@@ -36,7 +36,7 @@
         this website reveals which film and television celebrities (including
         directors and producers) have a
         <i>1&#176;</i> degree of seperation through a shared movie or television
-        credit. Talk shows, news, reality shows and documentaries are not
+        credit. <br />Talk shows, news, reality shows and documentaries are not
         included.
       </p>
     </div>
