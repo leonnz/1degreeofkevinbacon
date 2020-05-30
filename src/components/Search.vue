@@ -6,6 +6,7 @@
           v-model="personName"
           class="input is-medium is-danger"
           type="text"
+          aria-label="Enter the name of an individual that has worked in films or television."
           :placeholder="placeHolderName"
           @keyup="searchPerson(personName)"
           @keyup.down="resultsDownButton(0)"
