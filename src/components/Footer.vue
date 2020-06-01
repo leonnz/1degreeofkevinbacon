@@ -12,7 +12,7 @@
         </a>
       </p>
       <p>
-        Did you find this tool useful/fun/feeling nice?
+        Did you find this site useful/fun/feeling nice?
 
         <a
           target="blank"
