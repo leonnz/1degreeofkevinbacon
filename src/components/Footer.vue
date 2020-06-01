@@ -2,7 +2,7 @@
   <footer class="footer foot">
     <div class="content has-text-centered">
       <p>
-        &copy;
+        by
         <a
           title="Leon Lau LinkedIn link"
           target="blank"
