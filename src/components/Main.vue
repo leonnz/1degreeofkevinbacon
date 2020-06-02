@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="columns is-half-tablet inputs">
-      <div class="column">
+      <div class="column column-override">
         <Search
           placeHolderName="Kevin Bacon"
           @confirmPerson="confirmPerson1"
@@ -9,7 +9,7 @@
           :otherPerson="person2"
         />
       </div>
-      <div class="column">
+      <div class="column column-override">
         <Search
           placeHolderName="Tom Cruise"
           @confirmPerson="confirmPerson2"
@@ -106,5 +106,9 @@ export default {
   text-align: center;
   width: 800px;
   margin: 0 auto;
+}
+
+.column-override {
+  padding: 0 0.75rem 0.75rem 0.75rem;
 }
 </style>
