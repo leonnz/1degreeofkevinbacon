@@ -66,11 +66,9 @@ export default {
     },
     confirmPerson1: function(person) {
       this.person1 = person;
-      console.log(this.person1);
     },
     confirmPerson2: function(person) {
       this.person2 = person;
-      console.log(this.person2);
     },
     clearPerson1: function() {
       this.person1 = null;

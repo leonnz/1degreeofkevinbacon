@@ -62,18 +62,17 @@ export default {
   watch: {
     duplicateTitles: function() {
       if (this.duplicateTitles)
-        this.duplicateTitles.forEach((title) => {
+        this.duplicateTitles.forEach(title => {
           if (title.type === "movie") {
-            tmdb.movieSearch(title.id).then((response) => {
+            tmdb.movieSearch(title.id).then(response => {
               if (this.filterFilmGenres(response.genres) != true) {
                 this.movies.push(response);
-                console.log(response);
               }
             });
           }
           if (title.type === "tv") {
-            tmdb.tvSearch(title.id).then((response) => {
-              tmdb.tvExtIdSearch(response.id).then((tvRes) => {
+            tmdb.tvSearch(title.id).then(response => {
+              tmdb.tvExtIdSearch(response.id).then(tvRes => {
                 response.imdb_id = tvRes.imdb_id;
 
                 // filter out talk show, reality, news tv shows, and other weird shows
@@ -102,9 +101,9 @@ export default {
     imgError: function(img) {
       img.target.src = require("../assets/images/default_title_92w.png");
     },
-    filterOtherTvGenres: (genres) => {
+    filterOtherTvGenres: genres => {
       let otherShowTypes = false;
-      genres.forEach((genre) => {
+      genres.forEach(genre => {
         if (
           genre.name == "Talk" ||
           genre.name == "News" ||
@@ -116,7 +115,7 @@ export default {
       });
       return otherShowTypes;
     },
-    filterOtherTvShows: (name) => {
+    filterOtherTvShows: name => {
       let otherTvShows = false;
       if (name == "Live from Studio Five") {
         otherTvShows = true;
@@ -124,9 +123,9 @@ export default {
       return otherTvShows;
     },
 
-    filterFilmGenres: (genres) => {
+    filterFilmGenres: genres => {
       let otherShowTypes = false;
-      genres.forEach((genre) => {
+      genres.forEach(genre => {
         if (genre.name == "Documentary") {
           otherShowTypes = true;
         }

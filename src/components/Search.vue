@@ -50,7 +50,7 @@
                       <br />
                       {{
                         result.known_for
-                          .map((title) => {
+                          .map(title => {
                             return title.original_name
                               ? title.original_name
                               : title.title;
@@ -93,7 +93,7 @@ export default {
     filteredResults: function() {
       if (this.otherPerson) {
         return this.personResults.filter(
-          (result) => result.id !== this.otherPerson.personId
+          result => result.id !== this.otherPerson.personId
         );
       }
       return this.personResults;
@@ -126,7 +126,7 @@ export default {
     },
     searchPerson: function(person) {
       if (person.length > 2) {
-        tmdb.personSearch(person).then((response) => {
+        tmdb.personSearch(person).then(response => {
           this.personResults = response.results.slice(0, 5);
         });
       }
@@ -136,11 +136,10 @@ export default {
     },
     setPerson({ name, id, profile_path }) {
       this.$emit("clearPerson");
-      console.log(arguments[0].name);
       this.personResults.length = 0;
       this.personName = name;
 
-      tmdb.personIdSearch(id).then((response) => {
+      tmdb.personIdSearch(id).then(response => {
         this.$emit("confirmPerson", {
           personName: name,
           personId: id,
