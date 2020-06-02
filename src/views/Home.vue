@@ -1,19 +1,19 @@
 <template>
   <div class="home">
     <Header />
-    <InputForm />
+    <Main />
     <Footer />
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
-import InputForm from "@/components/InputForm";
+import Main from "@/components/Main";
 import Footer from "@/components/Footer";
 
 export default {
   name: "home",
-  components: { Header, InputForm, Footer }
+  components: { Header, Main, Footer }
 };
 </script>
 
@@ -23,6 +23,3 @@ export default {
   position: relative;
 }
 </style>
-
-
-
