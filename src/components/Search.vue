@@ -122,7 +122,7 @@ export default {
       }
     },
     getPersonPhoto: function(photo) {
-      return `http://image.tmdb.org/t/p/w92/${photo}`;
+      return `https://image.tmdb.org/t/p/w92/${photo}`;
     },
     searchPerson: function(person) {
       if (person.length > 2) {
