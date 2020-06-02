@@ -37,10 +37,7 @@
               >
                 <figure class="media-left">
                   <p class="image is-64x64">
-                    <img
-                      :src="getPersonPhoto(result.profile_path)"
-                      @error="imgError"
-                    />
+                    <img :src="getPersonPhoto(result.profile_path)" />
                   </p>
                 </figure>
                 <div class="media-content">
@@ -122,6 +119,9 @@ export default {
       }
     },
     getPersonPhoto: function(photo) {
+      if (photo == null) {
+        return require("../assets/images/default_person_64w.svg");
+      }
       return `https://image.tmdb.org/t/p/w92/${photo}`;
     },
     searchPerson: function(person) {
@@ -130,9 +130,6 @@ export default {
           this.personResults = response.results.slice(0, 5);
         });
       }
-    },
-    imgError: function(img) {
-      img.target.src = require("../assets/images/default_person_64w.svg");
     },
     setPerson({ name, id, profile_path }) {
       this.$emit("clearPerson");
