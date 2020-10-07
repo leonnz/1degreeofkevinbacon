@@ -27,7 +27,7 @@
       <p>
         Based on the concept of
         <a
-          class="wiki-link"
+          class="link"
           href="https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon"
           target="blank"
           >Six Degrees of Kevin Bacon</a
@@ -39,6 +39,29 @@
         credit. <br />Talk shows, news, reality shows and documentaries are not
         included.
       </p>
+      <!-- <p>
+        by
+        <a
+          title="Leon Lau LinkedIn link"
+          target="blank"
+          href="https://www.linkedin.com/in/leonlaunz/"
+        >
+          Leon Lau
+        </a>
+      </p>
+      <br />
+      <p>
+        Did you find this site useful/fun/feeling nice?
+
+        <a
+          class="link"
+          target="blank"
+          title="Paypal link"
+          href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=UHK5G657T7SJY&currency_code=USD&source=url"
+        >
+          Buy me a coffee </a
+        >, thank you for your support.
+      </p> -->
     </div>
   </div>
 </template>
@@ -51,33 +74,33 @@ import Results from "./Results";
 export default {
   components: {
     Search,
-    Results
+    Results,
   },
   data() {
     return {
       person1: null,
-      person2: null
+      person2: null,
     };
   },
 
   methods: {
-    test: function() {
+    test: function () {
       console.log(this.person1Confirmed, this.person2Confirmed);
     },
-    confirmPerson1: function(person) {
+    confirmPerson1: function (person) {
       this.person1 = person;
     },
-    confirmPerson2: function(person) {
+    confirmPerson2: function (person) {
       this.person2 = person;
     },
-    clearPerson1: function() {
+    clearPerson1: function () {
       this.person1 = null;
     },
-    clearPerson2: function() {
+    clearPerson2: function () {
       this.person2 = null;
-    }
+    },
   },
-  mounted() {}
+  mounted() {},
 };
 </script>
 
@@ -98,7 +121,7 @@ export default {
   margin: auto;
 }
 
-.wiki-link {
+.link {
   color: var(--mainColor);
 }
 

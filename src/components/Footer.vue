@@ -2,25 +2,14 @@
   <footer class="footer foot">
     <div class="content has-text-centered">
       <p>
-        by
-        <a
-          title="Leon Lau LinkedIn link"
-          target="blank"
-          href="https://www.linkedin.com/in/leonlaunz/"
-        >
-          Leon Lau
+        This product uses the TMDb API but is not endorsed or certified by TMDb.
+        <br />
+        <a title="Link to TMDB website" href="https://www.themoviedb.org/">
+          <img
+            width="200"
+            src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_1-8ba2ac31f354005783fab473602c34c3f4fd207150182061e425d366e4f34596.svg"
+          />
         </a>
-      </p>
-      <p>
-        Did you find this site useful/fun/feeling nice?
-
-        <a
-          target="blank"
-          title="Paypal link"
-          href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=UHK5G657T7SJY&currency_code=USD&source=url"
-        >
-          Buy me a coffee </a
-        >:)
       </p>
     </div>
   </footer>
