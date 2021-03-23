@@ -1,9 +1,7 @@
 <template>
   <div>
     <h1 class="title has-text-white header glow">
-      <a href="/"
-        ><img title="1°ofKevinBacon.com" src="../assets/images/title.png"
-      /></a>
+      <img title="1°ofKevinBacon.com" src="../assets/images/title.png" />
     </h1>
   </div>
 </template>
