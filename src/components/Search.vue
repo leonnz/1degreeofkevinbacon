@@ -15,7 +15,7 @@
         />
         <span v-show="personName" class="icon is-small is-right clear-icon">
           <a @click="clearSearch">
-            <i class="fas fa-times"></i>
+            <span style="color: Tomato;"> <i class="fas fa-times"></i></span>
           </a>
         </span>
       </p>
