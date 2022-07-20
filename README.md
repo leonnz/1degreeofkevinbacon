@@ -1,29 +1,4 @@
-# bacon
+Based on the concept of Six Degrees of Kevin Bacon where any two people on Earth are six or fewer acquaintance links apart, this website reveals which film and television celebrities (including directors and producers) have a 1° degree of seperation through a shared movie or television credit.
+Talk shows, news, reality shows and documentaries are not included. 
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Vue.JS
